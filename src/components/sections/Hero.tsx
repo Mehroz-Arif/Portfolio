@@ -3,8 +3,19 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import HeroScene from "@/components/3d/HeroScene";
+import { useState } from "react";
+import ContactModal from "@/components/ui/ContactModal";
 
 export default function Hero() {
+    const [isContactOpen, setIsContactOpen] = useState(false);
+
+    const scrollToProjects = () => {
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className="relative h-screen w-full overflow-hidden bg-background flex items-center justify-center">
             {/* 3D Background */}
@@ -39,22 +50,28 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-wrap gap-4 pt-4">
-                        <button className="group relative px-6 md:px-8 py-3 rounded-full bg-primary text-background font-semibold overflow-hidden transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
+                        <button
+                            onClick={scrollToProjects}
+                            className="group relative px-6 md:px-8 py-3 rounded-full bg-primary text-background font-semibold overflow-hidden transition-all hover:scale-105 active:scale-95 text-sm md:text-base cursor-pointer"
+                        >
                             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                             <span className="relative flex items-center gap-2">
                                 View Projects <ArrowRight className="w-4 h-4" />
                             </span>
                         </button>
 
-                        <button className="px-6 md:px-8 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-md transition-all hover:scale-105 active:scale-95 text-sm md:text-base">
+                        <button
+                            onClick={() => setIsContactOpen(true)}
+                            className="px-6 md:px-8 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-md transition-all hover:scale-105 active:scale-95 text-sm md:text-base cursor-pointer"
+                        >
                             Contact Me
                         </button>
                     </div>
 
                     <div className="flex items-center gap-6 pt-6 md:pt-8">
-                        <SocialLink href="https://github.com" icon={<Github className="w-5 h-5 md:w-6 md:h-6" />} label="GitHub" />
-                        <SocialLink href="https://linkedin.com" icon={<Linkedin className="w-5 h-5 md:w-6 md:h-6" />} label="LinkedIn" />
-                        <SocialLink href="mailto:mehroz@example.com" icon={<Mail className="w-5 h-5 md:w-6 md:h-6" />} label="Email" />
+                        <SocialLink href="https://github.com/Mehroz-Arif/" icon={<Github className="w-5 h-5 md:w-6 md:h-6" />} label="GitHub" />
+                        <SocialLink href="https://www.linkedin.com/in/mehrozarif/" icon={<Linkedin className="w-5 h-5 md:w-6 md:h-6" />} label="LinkedIn" />
+                        <SocialLink href="mailto:mehroazarif1122@gmail.com" icon={<Mail className="w-5 h-5 md:w-6 md:h-6" />} label="Email" />
                     </div>
                 </motion.div>
 
@@ -72,6 +89,8 @@ export default function Hero() {
                 <span className="text-xs tracking-widest text-gray-500 uppercase">Scroll</span>
                 <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
             </motion.div>
+
+            <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
         </section>
     );
 }

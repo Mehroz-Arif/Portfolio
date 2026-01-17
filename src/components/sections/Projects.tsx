@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 
 const projects = [
     {
@@ -46,7 +47,7 @@ export default function Projects() {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     return (
-        <section className="py-24 bg-black relative">
+        <section id="projects" className="py-24 bg-black relative">
             {/* Background gradient splash */}
             <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -63,6 +64,11 @@ export default function Projects() {
                     <p className="text-gray-400 max-w-xl text-sm md:text-base">
                         A selection of projects that define my engineering journey.
                     </p>
+                    {/* Mobile Scroll Hint */}
+                    <div className="flex md:hidden items-center gap-2 mt-4 text-primary text-xs animate-pulse">
+                        <span>Swipe to explore</span>
+                        <ArrowRight className="w-4 h-4" />
+                    </div>
                 </motion.div>
 
                 <div className="hidden md:flex gap-2 text-gray-400 text-sm font-mono">
