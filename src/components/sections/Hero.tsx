@@ -16,7 +16,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-[12.5vw] sm:text-[10vw] md:text-[9vw] lg:text-[8.4vw] font-black tracking-normal text-[#8c7b6c] leading-[0.9] uppercase font-bebas text-center whitespace-nowrap"
+                        className="text-[11.5vw] sm:text-[9.5vw] md:text-[8.5vw] lg:text-[7.8vw] font-black tracking-[0.06em] text-[#8c7b6c] leading-[0.9] uppercase font-bebas text-center whitespace-nowrap"
                     >
                         MERN STACK
                     </motion.h1>
@@ -40,7 +40,7 @@ export default function Hero() {
                     className="relative w-[320px] sm:w-[480px] md:w-[580px] lg:w-[680px] xl:w-[760px] h-[68vh] sm:h-[76vh] lg:h-[84vh] flex items-end justify-center"
                 >
                     <Image
-                        src="/mypic-transparent.png"
+                        src="/mypic-v2.png"
                         alt="Mehroz Arif — MERN Stack Developer"
                         fill
                         priority
@@ -50,17 +50,17 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            {/* 3. Left Info Pillar: BSCS Computer Science */}
+            {/* 3. Left Info Pillar: MPhil. Computer Science */}
             <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="absolute bottom-6 sm:bottom-12 lg:bottom-16 left-6 sm:left-12 lg:left-20 xl:left-28 z-20 text-left"
             >
-                <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-bebas text-[#8c7b6c] tracking-tight leading-none mb-0.5 sm:mb-1">
-                    BSCS.
+                <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-bebas text-[#8c7b6c] tracking-[0.08em] leading-none mb-0.5 sm:mb-1 uppercase">
+                    MPhil.
                 </h2>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-light font-oswald text-[#8c7b6c] tracking-tight">
+                <p className="text-xl sm:text-2xl lg:text-3xl font-light font-oswald text-[#8c7b6c] tracking-[0.04em]">
                     Computer Science
                 </p>
             </motion.div>
@@ -72,10 +72,10 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="absolute bottom-6 sm:bottom-12 lg:bottom-16 right-6 sm:right-12 lg:right-20 xl:right-28 z-20 text-left"
             >
-                <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-bebas text-[#8c7b6c] tracking-tight leading-none mb-0.5 sm:mb-1">
+                <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-bebas text-[#8c7b6c] tracking-[0.08em] leading-none mb-0.5 sm:mb-1 uppercase">
                     Mehroz
                 </h2>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-light font-oswald text-[#8c7b6c] tracking-tight">
+                <p className="text-xl sm:text-2xl lg:text-3xl font-light font-oswald text-[#8c7b6c] tracking-[0.04em]">
                     Arif
                 </p>
             </motion.div>
