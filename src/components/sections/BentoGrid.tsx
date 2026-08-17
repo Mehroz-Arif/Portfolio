@@ -2,179 +2,235 @@
 
 import { motion } from "framer-motion";
 import BentoCard from "@/components/ui/BentoCard";
-import { Code2, Server, Database, Globe, Layers, Cpu } from "lucide-react";
+import {
+    Globe,
+    Server,
+    Database,
+    ShieldCheck,
+    GraduationCap,
+    Briefcase,
+    Sparkles,
+    CheckCircle2,
+} from "lucide-react";
 
-const skills = [
-    { name: "Next.js", icon: <Globe className="w-6 h-6" /> },
-    { name: "MERN", icon: <Code2 className="w-6 h-6" /> },
-    { name: "Convex", icon: <Layers className="w-6 h-6" /> },
-    { name: "Prisma", icon: <Database className="w-6 h-6" /> },
-    { name: "REST/GraphQL", icon: <Server className="w-6 h-6" /> },
-    { name: "Tailwind", icon: <Cpu className="w-6 h-6" /> },
+const skillCategories = [
+    {
+        category: "Frontend",
+        skills: ["Next.js", "React.js", "TypeScript", "JavaScript", "Tailwind CSS", "Bootstrap"],
+        icon: <Globe className="w-5 h-5 text-primary" />,
+    },
+    {
+        category: "Backend & APIs",
+        skills: ["Node.js", "Express.js", "RESTful APIs", "GraphQL"],
+        icon: <Server className="w-5 h-5 text-accent" />,
+    },
+    {
+        category: "Databases & ORM",
+        skills: ["PostgreSQL", "MySQL", "MongoDB", "Prisma ORM"],
+        icon: <Database className="w-5 h-5 text-cyan-400" />,
+    },
+    {
+        category: "Auth, Tools & Cloud",
+        skills: ["NextAuth", "RBAC", "Git / GitHub", "Vercel", "Figma"],
+        icon: <ShieldCheck className="w-5 h-5 text-emerald-400" />,
+    },
 ];
 
 export default function BentoGrid() {
     return (
-        <section className="py-24 px-6 bg-background relative z-10">
-            <div className="container mx-auto">
+        <section id="experience" className="py-32 px-6 bg-background relative z-10">
+            {/* Background accents */}
+            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/[0.03] rounded-full blur-[140px] pointer-events-none -translate-y-1/2" />
+            <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+
+            <div className="container mx-auto max-w-6xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mb-12"
+                    className="mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold font-heading mb-4">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                            Experience & Skills
-                        </span>
+                    <p className="text-primary text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-3">
+                        Background & Expertise
+                    </p>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-heading mb-5 text-foreground">
+                        Experience & Skills
                     </h2>
-                    <p className="text-gray-400 max-w-2xl">
-                        My journey through the tech landscape, building scalable applications and immersive experiences.
+                    <p className="text-foreground-muted text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed">
+                        My journey through the tech landscape — designing scalable architectures,
+                        AI-integrated platforms, and pixel-perfect digital experiences.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
-                    {/* Bio / Intro Card */}
-                    <BentoCard
-                        colSpan={2}
-                        rowSpan={2}
-                        title="About Me"
-                        subtitle="Full Stack Visionary"
-                        className="md:h-full min-h-[300px]"
-                    >
-                        <div className="prose prose-invert text-gray-300 text-base leading-relaxed">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-5 auto-rows-[minmax(180px,auto)]">
+                    {/* About Me Card */}
+                    <BentoCard colSpan={2} rowSpan={2} title="About Me" subtitle="Full Stack Developer" className="md:h-full min-h-[380px]">
+                        <div className="text-foreground-muted/90 text-base md:text-lg leading-relaxed space-y-4">
                             <p>
-                                I am a passionate Full Stack Developer with over 2 years of expertise in building scalable,
-                                high-performance web applications. My journey started with the MERN stack, but I found my
-                                true calling in the Next.js ecosystem, where I blend powerful backend logic with immersive
-                                frontend experiences.
+                                Results-driven <strong className="text-foreground font-semibold">Full Stack Developer</strong> with deep expertise designing and building scalable web applications using the <strong className="text-primary font-semibold">MERN stack</strong> and <strong className="text-accent font-semibold">Next.js</strong>.
                             </p>
-                            <p className="mt-4">
-                                Currently, I focus on integrating specific backend technologies like <strong>Convex</strong>,
-                                <strong>ElysiaJS</strong>, and <strong>Hono</strong> to build ultra-fast, type-safe APIs.
-                                I leverage <strong>AI</strong> to integrate intelligent features into systems, drastically
-                                increasing specific productivity and system performance.
+                            <p>
+                                Skilled in backend architecture, RESTful APIs, GraphQL, and converting complex Figma designs into responsive, pixel-perfect interfaces. Experienced in end-to-end product ownership, AI platform integrations, and robust role-based system designs.
                             </p>
-                            <p className="mt-4">
-                                From crafting complex dashboards to architecting real-time agent calling systems,
-                                I thrive on solving complex problems with scalable, efficient code.
+                            <p>
+                                Proficient in <strong className="text-foreground font-semibold">PostgreSQL, MySQL, and MongoDB</strong> with strong data modeling and query optimization expertise.
                             </p>
                         </div>
-                        <div className="mt-8 flex gap-2 flex-wrap">
-                            {["Next.js Expert", "AI Integration", "Backend Performance", "Problem Solver"].map(tag => (
-                                <span key={tag} className="px-3 py-1 rounded-full text-sm bg-white/10 text-white font-medium border border-white/5">
-                                    {tag}
+                        <div className="mt-6 flex gap-2.5 flex-wrap">
+                            {[
+                                "MERN & Next.js",
+                                "AI Platform Integration",
+                                "Role-Based Architecture",
+                                "Data Modeling & Prisma",
+                                "Figma to Pixel-Perfect",
+                            ].map((tag) => (
+                                <span
+                                    key={tag}
+                                    className="px-3.5 py-1.5 rounded-xl text-sm md:text-base bg-white/[0.05] text-foreground-muted border border-white/[0.08] flex items-center gap-2 hover:border-primary/30 transition-colors font-medium"
+                                >
+                                    <Sparkles className="w-4 h-4 text-primary" /> {tag}
                                 </span>
                             ))}
                         </div>
                     </BentoCard>
 
-                    {/* Tech Stack Marquee (Simplified as grid for now) */}
-                    <BentoCard colSpan={2} title="Core Tech Stack" subtitle="Arsenal">
-                        <div className="grid grid-cols-3 gap-4 mt-2">
-                            {skills.map((skill) => (
-                                <div key={skill.name} className="flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors gap-2 group">
-                                    <div className="text-primary group-hover:text-white transition-colors">{skill.icon}</div>
-                                    <span className="text-sm font-medium text-gray-400 group-hover:text-white">{skill.name}</span>
+                    {/* Tech Stack */}
+                    <BentoCard colSpan={2} rowSpan={2} title="Core Tech Stack" subtitle="Technical Arsenal">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                            {skillCategories.map((group) => (
+                                <div
+                                    key={group.category}
+                                    className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all duration-300"
+                                >
+                                    <div className="flex items-center gap-2.5 mb-3">
+                                        {group.icon}
+                                        <span className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground">
+                                            {group.category}
+                                        </span>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                        {group.skills.map((skill) => (
+                                            <span
+                                                key={skill}
+                                                className="px-3 py-1 rounded-lg text-sm md:text-base font-medium bg-white/[0.04] text-foreground-muted/90 border border-white/[0.06] hover:text-primary hover:border-primary/30 transition-colors"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </BentoCard>
 
-                    {/* Experience 1 - SpiralSols */}
-                    <BentoCard colSpan={2} title="Frontend & Full Stack Dev" subtitle="SpiralSols">
-                        <p className="text-base text-gray-400 mb-4">2025 - 2026</p>
-                        <div className="space-y-4 text-base text-gray-300">
+                    {/* Experience 1 - SoftHeight */}
+                    <BentoCard colSpan={2} title="Full Stack Developer" subtitle="SoftHeight, Multan">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-sm md:text-base text-foreground-muted/60 font-mono">Jun 2024 – Present</span>
+                            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs md:text-sm font-bold bg-success/10 text-success border border-success/20">
+                                <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                                Current Role
+                            </span>
+                        </div>
+                        <div className="space-y-3 text-base text-foreground-muted/80">
                             <div>
-                                <strong className="text-primary block mb-1">We Love Joe (Agent Calling Platform)</strong>
-                                <ul className="list-disc list-inside space-y-1 text-sm text-gray-400">
-                                    <li>Built complete frontend (landing & dashboards) from Figma.</li>
-                                    <li>Implemented backend with Convex & Ultra Vox voices for AI agents.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <strong className="text-primary block mb-1">Other Projects</strong>
-                                <ul className="list-disc list-inside space-y-1 text-sm text-gray-400">
-                                    <li><strong>Klyno AI:</strong> AI-driven features integration.</li>
-                                    <li><strong>Video Signal:</strong> Complete dashboard frontend from Figma.</li>
-                                    <li><strong>Larya:</strong> 7 fully responsive pages from Figma designs.</li>
+                                <strong className="text-primary text-base md:text-lg block font-bold mb-2.5">Ticketlabel — Event Ticketing Platform</strong>
+                                <ul className="space-y-2 list-none pl-0">
+                                    <li className="flex items-start gap-2.5">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0 mt-0.5" />
+                                        <span className="text-sm md:text-base leading-relaxed">Led end-to-end development with full ownership from architecture to production deployment.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2.5">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0 mt-0.5" />
+                                        <span className="text-sm md:text-base leading-relaxed">Engineered automated ticket generation pipeline reducing operational time by 40%.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2.5">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0 mt-0.5" />
+                                        <span className="text-sm md:text-base leading-relaxed">Built Virtual Queue System with real-time waiting rooms and queue positioning.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2.5">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0 mt-0.5" />
+                                        <span className="text-sm md:text-base leading-relaxed">Built role-based dashboards with granular access control and secure payment processing.</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </BentoCard>
 
-                    {/* Experience 2 - SoftHeight */}
-                    <BentoCard colSpan={2} title="Full Stack Developer" subtitle="SoftHeight">
-                        <p className="text-base text-gray-400 mb-4">2024 - 2025</p>
-                        <ul className="list-disc list-inside text-base text-gray-300 space-y-1">
-                            <li>Developed an Event Ticketing Platform from scratch.</li>
-                            <li>Integrated <strong className="text-white">Adyen Payment Gateway</strong> for secure transactions.</li>
-                            <li>Designed scalable database schema with Prisma & PostgreSQL.</li>
-                        </ul>
+                    {/* Experience 2 - SpiralSols */}
+                    <BentoCard colSpan={2} title="Full Stack Developer" subtitle="SpiralSols, Multan">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-sm md:text-base text-foreground-muted/60 font-mono">Sep 2025 – April 2026</span>
+                            <span className="px-3.5 py-1 rounded-full text-xs md:text-sm font-semibold bg-white/[0.05] text-foreground-muted/70 border border-white/[0.08]">
+                                Previous Role
+                            </span>
+                        </div>
+                        <div className="space-y-3 text-base text-foreground-muted/80">
+                            <div>
+                                <strong className="text-accent text-base md:text-lg block font-bold mb-2.5">Key Contributions & Platforms</strong>
+                                <ul className="space-y-2 list-none pl-0">
+                                    <li className="flex items-start gap-2.5">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-accent shrink-0 mt-0.5" />
+                                        <span className="text-sm md:text-base leading-relaxed"><strong className="text-foreground">We Love Joe:</strong> AI Business Agent SaaS (Twilio, custom data training, live customer calls).</span>
+                                    </li>
+                                    <li className="flex items-start gap-2.5">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-accent shrink-0 mt-0.5" />
+                                        <span className="text-sm md:text-base leading-relaxed"><strong className="text-foreground">Stable Summit & Vault Summit:</strong> Two complete 10-page responsive websites from Figma.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2.5">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-accent shrink-0 mt-0.5" />
+                                        <span className="text-sm md:text-base leading-relaxed"><strong className="text-foreground">Klyno AI:</strong> Multi-model AI tiering, pricing UI, chat summarizer.</span>
+                                    </li>
+                                    <li className="flex items-start gap-2.5">
+                                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-accent shrink-0 mt-0.5" />
+                                        <span className="text-sm md:text-base leading-relaxed"><strong className="text-foreground">Larya:</strong> 7 pixel-perfect responsive pages from Figma with high fidelity.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </BentoCard>
 
-                    {/* Redesigned Kinetic Typography / DNA Card */}
-                    <BentoCard colSpan={4} className="relative flex flex-col justify-center overflow-hidden py-12 px-0 bg-black">
-                        {/* Background Grid Accent */}
-                        <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
-
-                        {/* Edge Fading Masks */}
-                        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-zinc-900 to-transparent z-20" />
-                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-zinc-900 to-transparent z-20" />
-
-                        <div className="relative space-y-6">
-                            {/* Row 1: Forward Scroll */}
-                            <div className="flex overflow-hidden group">
-                                <div className="animate-marquee whitespace-nowrap flex gap-12 text-5xl md:text-7xl font-bold tracking-tighter items-center italic">
-                                    <span className="text-white/40 uppercase transition-all hover:text-primary duration-500 hover:drop-shadow-[0_0_15px_rgba(0,242,255,0.5)]">Scalability</span>
-                                    <span className="text-primary/40">•</span>
-                                    <span className="text-transparent border-t border-b border-white/20 py-1 uppercase text-white/30">Clean Code</span>
-                                    <span className="text-white/40 uppercase transition-all hover:text-white duration-500">Efficiency</span>
-                                    <span className="text-secondary/40">•</span>
-                                    <span className="text-white/40 uppercase transition-all hover:text-secondary duration-500 hover:drop-shadow-[0_0_15px_rgba(112,0,255,0.5)]">Next.js 15</span>
+                    {/* Education & Internship */}
+                    <BentoCard colSpan={4} title="Education & Internship" subtitle="Foundation & Academics">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+                            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all">
+                                <div className="flex items-center gap-2.5 mb-2.5 text-primary font-bold text-sm md:text-base">
+                                    <Briefcase className="w-4 h-4 md:w-5 md:h-5" />
+                                    <span>Hattrick Solution, Multan</span>
                                 </div>
-                                <div className="animate-marquee whitespace-nowrap flex gap-12 text-5xl md:text-7xl font-bold tracking-tighter items-center italic pl-12" aria-hidden="true">
-                                    <span className="text-white/40 uppercase transition-all hover:text-primary duration-500 hover:drop-shadow-[0_0_15px_rgba(0,242,255,0.5)]">Scalability</span>
-                                    <span className="text-primary/40">•</span>
-                                    <span className="text-transparent border-t border-b border-white/20 py-1 uppercase text-white/30">Clean Code</span>
-                                    <span className="text-white/40 uppercase transition-all hover:text-white duration-500">Efficiency</span>
-                                    <span className="text-secondary/40">•</span>
-                                    <span className="text-white/40 uppercase transition-all hover:text-secondary duration-500 hover:drop-shadow-[0_0_15px_rgba(112,0,255,0.5)]">Next.js 15</span>
-                                </div>
+                                <span className="text-xs md:text-sm text-foreground-muted/60 font-mono block mb-2.5">
+                                    Mar 2024 – May 2024 · Backend Intern
+                                </span>
+                                <p className="text-sm md:text-base text-foreground-muted/80 leading-relaxed">
+                                    Built School Management and Chemical Inventory Systems using TypeScript, Node.js, PostgreSQL, Prisma ORM, and GraphQL APIs.
+                                </p>
                             </div>
 
-                            {/* Row 2: Reverse Scroll */}
-                            <div className="flex overflow-hidden group">
-                                <div className="animate-marquee2-reverse whitespace-nowrap flex gap-12 text-5xl md:text-7xl font-bold tracking-tighter items-center">
-                                    <span className="text-white/20 uppercase">Performance</span>
-                                    <span className="text-primary/30">•</span>
-                                    <span className="text-white/20 uppercase italic">User Centric</span>
-                                    <span className="text-secondary/30">•</span>
-                                    <span className="text-transparent border-l border-r border-white/20 px-4 uppercase text-white/10">AI Integrated</span>
-                                    <span className="text-white/20 uppercase">Pixel Perfect</span>
-                                    <span className="text-white/20 uppercase">Performance</span>
-                                    <span className="text-primary/30">•</span>
-                                    <span className="text-white/20 uppercase italic">User Centric</span>
-                                    <span className="text-secondary/30">•</span>
-                                    <span className="text-transparent border-l border-r border-white/20 px-4 uppercase text-white/10">AI Integrated</span>
-                                    <span className="text-white/20 uppercase">Pixel Perfect</span>
+                            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all">
+                                <div className="flex items-center gap-2.5 mb-2.5 text-accent font-bold text-sm md:text-base">
+                                    <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
+                                    <span>MPhil Computer Science</span>
                                 </div>
-                                <div className="animate-marquee2-reverse whitespace-nowrap flex gap-12 text-5xl md:text-7xl font-bold tracking-tighter items-center pl-12" aria-hidden="true">
-                                    <span className="text-white/20 uppercase">Performance</span>
-                                    <span className="text-primary/30">•</span>
-                                    <span className="text-white/20 uppercase italic">User Centric</span>
-                                    <span className="text-secondary/30">•</span>
-                                    <span className="text-transparent border-l border-r border-white/20 px-4 uppercase text-white/10">AI Integrated</span>
-                                    <span className="text-white/20 uppercase">Pixel Perfect</span>
-                                    <span className="text-white/20 uppercase">Performance</span>
-                                    <span className="text-primary/30">•</span>
-                                    <span className="text-white/20 uppercase italic">User Centric</span>
-                                    <span className="text-secondary/30">•</span>
-                                    <span className="text-transparent border-l border-r border-white/20 px-4 uppercase text-white/10">AI Integrated</span>
-                                    <span className="text-white/20 uppercase">Pixel Perfect</span>
+                                <span className="text-xs md:text-sm text-foreground-muted/60 font-mono block mb-2.5">
+                                    Sep 2025 – Present · USP
+                                </span>
+                                <p className="text-sm md:text-base text-foreground-muted/80 leading-relaxed">
+                                    University of Southern Punjab. First semester <strong className="text-foreground">CGPA 3.2</strong>. Focus on advanced computer science and research.
+                                </p>
+                            </div>
+
+                            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.1] transition-all">
+                                <div className="flex items-center gap-2.5 mb-2.5 text-cyan-400 font-bold text-sm md:text-base">
+                                    <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
+                                    <span>BS Computer Science</span>
                                 </div>
+                                <span className="text-xs md:text-sm text-foreground-muted/60 font-mono block mb-2.5">
+                                    Sep 2021 – Aug 2025 · BZU
+                                </span>
+                                <p className="text-sm md:text-base text-foreground-muted/80 leading-relaxed">
+                                    Bahauddin Zakariya University. <strong className="text-foreground">CGPA: 3.27</strong>. Strong foundation in algorithms, databases, and software engineering.
+                                </p>
                             </div>
                         </div>
                     </BentoCard>
