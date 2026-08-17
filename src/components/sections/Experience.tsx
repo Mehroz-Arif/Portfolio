@@ -61,9 +61,9 @@ export default function Experience() {
         <section id="experience" className="py-20 sm:py-28 bg-[#fbf7f0] select-none overflow-hidden">
             <div className="w-full px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto">
                 
-                {/* 1. EXPERIENCE Watermark Title (Left-aligned, properly sized - Matching Reference) */}
+                {/* 1. EXPERIENCE Watermark Title (Left-aligned, enlarged - Matching Reference) */}
                 <div className="text-left mb-12 sm:mb-16 select-none">
-                    <h2 className="text-6xl sm:text-7xl lg:text-[5.8rem] font-black tracking-normal text-[#c6b7a6] uppercase font-bebas leading-none">
+                    <h2 className="text-7xl sm:text-8xl lg:text-[8.5rem] xl:text-[9.5rem] font-black tracking-normal text-[#c6b7a6] uppercase font-bebas leading-none">
                         EXPERIENCE
                     </h2>
                 </div>
