@@ -47,6 +47,64 @@ const skills = [
         ),
     },
     {
+        name: "Convex",
+        icon: (
+            <div className="flex items-center gap-2">
+                <svg viewBox="0 0 24 24" className="w-8 h-8 stroke-[#3c2f24] fill-none stroke-[2]" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                <span className="text-2xl sm:text-3xl font-black font-heading tracking-tight text-[#3c2f24]">
+                    Convex
+                </span>
+            </div>
+        ),
+    },
+    {
+        name: "Prisma ORM",
+        icon: (
+            <div className="flex items-center gap-2">
+                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-[#3c2f24]">
+                    <path d="M12.63 2.05L21.4 17.58c.45.79-.12 1.77-1.03 1.77H3.63c-.91 0-1.48-.98-1.03-1.77L11.37 2.05c.46-.8 1.62-.8 2.08 0zM12 6.5l-6 10.5h12L12 6.5z" />
+                </svg>
+                <span className="text-2xl sm:text-3xl font-black font-heading tracking-tight text-[#3c2f24]">
+                    Prisma
+                </span>
+            </div>
+        ),
+    },
+    {
+        name: "MySQL",
+        icon: (
+            <span className="text-3xl sm:text-4xl font-black uppercase font-bebas tracking-wide text-[#3c2f24]">
+                MySQL
+            </span>
+        ),
+    },
+    {
+        name: "PostgreSQL",
+        icon: (
+            <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#3c2f24]">
+                PostgreSQL
+            </span>
+        ),
+    },
+    {
+        name: "Next.js",
+        icon: (
+            <span className="text-2xl sm:text-3xl font-black tracking-tight font-heading text-[#3c2f24]">
+                Next.js
+            </span>
+        ),
+    },
+    {
+        name: "TypeScript",
+        icon: (
+            <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#3c2f24]">
+                TypeScript
+            </span>
+        ),
+    },
+    {
         name: "Figma",
         icon: (
             <span className="text-2xl sm:text-3xl font-medium tracking-tight font-heading text-[#3c2f24]">
@@ -79,34 +137,10 @@ const skills = [
         ),
     },
     {
-        name: "Next.js",
-        icon: (
-            <span className="text-2xl sm:text-3xl font-black tracking-tight font-heading text-[#3c2f24]">
-                Next.js
-            </span>
-        ),
-    },
-    {
-        name: "TypeScript",
+        name: "Tailwind CSS",
         icon: (
             <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#3c2f24]">
-                TypeScript
-            </span>
-        ),
-    },
-    {
-        name: "PostgreSQL",
-        icon: (
-            <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#3c2f24]">
-                PostgreSQL
-            </span>
-        ),
-    },
-    {
-        name: "Tailwind",
-        icon: (
-            <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#3c2f24]">
-                Tailwind CSS
+                Tailwind
             </span>
         ),
     },
@@ -136,7 +170,7 @@ export default function Skills() {
                     transition={{
                         repeat: Infinity,
                         ease: "linear",
-                        duration: 25,
+                        duration: 30,
                     }}
                     className="flex items-center gap-12 sm:gap-20 whitespace-nowrap w-max"
                 >

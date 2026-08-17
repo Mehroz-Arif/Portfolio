@@ -5,12 +5,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ContactModal from "@/components/ui/ContactModal";
 
-const navLinks = [
+interface NavItem {
+    label: string;
+    href: string;
+    isPdf?: boolean;
+}
+
+const navLinks: NavItem[] = [
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
     { label: "Education", href: "#education" },
     { label: "Experience", href: "#experience" },
-    { label: "Resume", href: "mailto:mehrozarif1122@gmail.com" },
+    { label: "Resume", href: "/Full_Stack_Developer_Mehroz_Arif_Resume.pdf", isPdf: true },
 ];
 
 export default function Navbar() {
@@ -26,10 +32,14 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const handleClick = (href: string) => {
+    const handleClick = (item: NavItem) => {
         setIsMobileOpen(false);
-        if (href.startsWith("#")) {
-            const el = document.querySelector(href);
+        if (item.isPdf) {
+            window.open(item.href, "_blank", "noopener,noreferrer");
+            return;
+        }
+        if (item.href.startsWith("#")) {
+            const el = document.querySelector(item.href);
             if (el) {
                 el.scrollIntoView({ behavior: "smooth" });
             }
@@ -46,10 +56,10 @@ export default function Navbar() {
                 }`}
             >
                 <div className="w-full px-6 sm:px-10 lg:px-16 flex items-center justify-between">
-                    {/* Left: Monogram Logo (Matching Reference) */}
+                    {/* Left: Monogram Logo */}
                     <div className="flex items-center gap-8 lg:gap-14">
                         <button
-                            onClick={() => handleClick("#home")}
+                            onClick={() => handleClick({ label: "Home", href: "#home" })}
                             className="cursor-pointer group flex items-center"
                             aria-label="Home"
                         >
@@ -61,19 +71,31 @@ export default function Navbar() {
 
                         {/* Desktop Navigation Links */}
                         <nav className="hidden md:flex items-center gap-6 lg:gap-9">
-                            {navLinks.map((link) => (
-                                <button
-                                    key={link.label}
-                                    onClick={() => handleClick(link.href)}
-                                    className="text-base lg:text-lg font-medium text-[#2e2319] hover:text-[#8c7b6c] transition-colors cursor-pointer"
-                                >
-                                    {link.label}
-                                </button>
-                            ))}
+                            {navLinks.map((link) =>
+                                link.isPdf ? (
+                                    <a
+                                        key={link.label}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-base lg:text-lg font-medium text-[#2e2319] hover:text-[#8c7b6c] transition-colors cursor-pointer"
+                                    >
+                                        {link.label}
+                                    </a>
+                                ) : (
+                                    <button
+                                        key={link.label}
+                                        onClick={() => handleClick(link)}
+                                        className="text-base lg:text-lg font-medium text-[#2e2319] hover:text-[#8c7b6c] transition-colors cursor-pointer"
+                                    >
+                                        {link.label}
+                                    </button>
+                                )
+                            )}
                         </nav>
                     </div>
 
-                    {/* Right: Get in Touch Button (Matching Reference) */}
+                    {/* Right: Get in Touch Button */}
                     <div className="flex items-center gap-3">
                         <button
                             onClick={() => setIsContactOpen(true)}
@@ -103,15 +125,28 @@ export default function Navbar() {
                         className="fixed inset-x-0 top-18 z-40 p-4 md:hidden"
                     >
                         <div className="bg-[#fbf7f0] border border-[#2e2319]/15 rounded-2xl p-5 flex flex-col gap-2 shadow-xl">
-                            {navLinks.map((link) => (
-                                <button
-                                    key={link.label}
-                                    onClick={() => handleClick(link.href)}
-                                    className="px-4 py-3 text-left text-[#2e2319] hover:bg-[#2e2319]/5 rounded-xl transition-colors text-lg font-semibold cursor-pointer"
-                                >
-                                    {link.label}
-                                </button>
-                            ))}
+                            {navLinks.map((link) =>
+                                link.isPdf ? (
+                                    <a
+                                        key={link.label}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => setIsMobileOpen(false)}
+                                        className="px-4 py-3 text-left text-[#2e2319] hover:bg-[#2e2319]/5 rounded-xl transition-colors text-lg font-semibold cursor-pointer"
+                                    >
+                                        {link.label}
+                                    </a>
+                                ) : (
+                                    <button
+                                        key={link.label}
+                                        onClick={() => handleClick(link)}
+                                        className="px-4 py-3 text-left text-[#2e2319] hover:bg-[#2e2319]/5 rounded-xl transition-colors text-lg font-semibold cursor-pointer"
+                                    >
+                                        {link.label}
+                                    </button>
+                                )
+                            )}
                         </div>
                     </motion.div>
                 )}
